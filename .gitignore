@@ -1,1 +1,2 @@
-backend/node_modueles
+backend/node_modules
+.mongo_data
