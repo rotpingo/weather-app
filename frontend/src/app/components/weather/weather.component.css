@@ -1,0 +1,19 @@
+.topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  border: 1px solid black;
+  height: 2rem;
+  display: flex;
+}
+
+.main-weather {
+  display: flex;
+  margin-top: 2rem;
+  justify-content: center;
+}
+
+.temperature {
+  font-size: 8rem;
+}
