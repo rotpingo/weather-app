@@ -1,9 +1,9 @@
-import express, { Request, Response } from "express";
-import { getWeather, getWeatherHistory } from "../controllers/WeatherController";
+import express from "express";
+import { WeatherController } from "../controllers/WeatherController";
 
 const router = express.Router();
+const weatherController = new WeatherController();
 
-router.get("/", getWeather as express.RequestHandler);
-router.get("/history", getWeatherHistory);
+router.get("/weather", weatherController.getWeather);
 
 export default router;
