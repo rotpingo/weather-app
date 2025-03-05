@@ -22,7 +22,7 @@ export class WeatherController {
       const weatherData = await this.weatherService.fetchWeather(city);
 
       const newWeather = new Weather({
-        city: weatherData.name,
+        name: weatherData.name,
         temperature: weatherData.main.temp,
         description: weatherData.weather[0].description,
         humidity: weatherData.main.humidity,
@@ -33,7 +33,7 @@ export class WeatherController {
       await newWeather.save();
 
 
-      response.json(weatherData);
+      response.json(newWeather);
     } catch (error) {
       console.error('Error fetching weather data', error);
       response.status(500).json({ error: "Failed to fetch weather data" });
