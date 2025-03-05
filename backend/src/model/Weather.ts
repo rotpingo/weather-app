@@ -5,21 +5,19 @@ export interface IWeather extends Document {
   city: string,
   temperature: number,
   description: string;
-  date: Date;
   humidity: number;
   wind: number;
-  cloudness: number;
+  cloudiness: number;
 }
 
 // Schema
 const WeatherSchema = new mongoose.Schema({
   city: { type: String, required: true },
-  tempreature: { type: Number, required: true },
+  temperature: { type: Number, required: true },
   description: { type: String, required: true },
-  date: { type: Date, default: Date.now },
   humidity: { type: Number, required: true },
   wind: { type: Number, required: true },
-  cloudness: { type: Number, required: true }
+  cloudiness: { type: Number, required: true }
 });
 
 //Exporting Mongoose Model

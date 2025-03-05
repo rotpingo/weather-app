@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import { WeatherService } from "../services/WeatherService";
+import Weather from "../model/Weather";
 
 export class WeatherController {
 
@@ -19,6 +20,19 @@ export class WeatherController {
       }
 
       const weatherData = await this.weatherService.fetchWeather(city);
+
+      const newWeather = new Weather({
+        city: weatherData.name,
+        temperature: weatherData.main.temp,
+        description: weatherData.weather[0].description,
+        humidity: weatherData.main.humidity,
+        wind: weatherData.wind.speed,
+        cloudiness: weatherData.clouds.all
+      })
+
+      await newWeather.save();
+
+
       response.json(weatherData);
     } catch (error) {
       console.error('Error fetching weather data', error);
