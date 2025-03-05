@@ -6,14 +6,18 @@
   border: 1px solid black;
   height: 2rem;
   display: flex;
+  justify-content: space-between;
 }
 
 .main-weather {
   display: flex;
   margin-top: 2rem;
-  justify-content: center;
+  flex-direction: column;
+  text-align: center;
 }
 
 .temperature {
+  border: 1px solid black;
+  margin-top: 5rem;
   font-size: 8rem;
 }

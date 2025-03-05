@@ -1,4 +1,10 @@
-<div class="topbar">topbar</div>
+<div class="topbar">
+  <div>{{cityWeather.cloudiness}}%</div>
+  <div>{{cityWeather.wind}} m/s</div>
+  <div>{{cityWeather.humidity}}%</div>
+</div>
 <div class="main-weather">
-  <div class="temperature">10C°</div>
+  <div class="temperature">{{cityWeather.temperature}}C°</div>
+  <div class="city">{{cityWeather.name}}</div>
+  <div class="description">{{cityWeather.description}}</div>
 </div>
