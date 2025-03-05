@@ -23,7 +23,7 @@ mongoose.connect(process.env.MONGO_URI as string, {
 }).then(() => console.log("MongoDB Connected"))
   .catch(error => console.error("MongoDB Connection Error: ", error));
 
-app.use("/weather", WeatherRoutes);
+app.use("/api", WeatherRoutes);
 
 app.listen(port, () => {
   console.log(`[server]: Server is running at http://localhost:${port}`);
