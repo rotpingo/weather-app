@@ -1,23 +1,50 @@
-.topbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  border: 1px solid black;
-  height: 2rem;
+.top-status-bar {
   display: flex;
+  width: 100vw;
   justify-content: space-between;
+}
+
+.icon-img {
+  vertical-align: middle;
+  width: 30px;
+}
+
+.weekday {
+  margin: 0.5rem;
+  font-size: 2rem;
+}
+
+.opt-bar {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  margin: 0.5rem;
+}
+
+.status-img-container {
+  margin-top: 2rem;
+}
+
+.status-img {
+  width: 15rem;
+  height: 15rem;
 }
 
 .main-weather {
   display: flex;
-  margin-top: 2rem;
   flex-direction: column;
   text-align: center;
 }
 
 .temperature {
-  border: 1px solid black;
-  margin-top: 5rem;
   font-size: 8rem;
+}
+
+.city {
+  font-size: 2rem;
+}
+
+.description {
+  font-size: 1rem;
+  ;
 }
