@@ -13,6 +13,7 @@ export class WeatherComponent implements OnInit {
 
   cityWeather: WeatherModel = {
     name: "",
+    country: "",
     temperature: 0,
     description: "",
     humidity: 0,
@@ -24,14 +25,15 @@ export class WeatherComponent implements OnInit {
 
 
   ngOnInit(): void {
-    //this.onGetWeather("Ottawa");
-    this.getDirectWeather("Berlin");
+    this.onGetWeather("Ottawa");
+    //this.getDirectWeather("Berlin");
   }
 
   onGetWeather(city: String) {
     this.weatherService.getWeather(city).subscribe({
       next: (value: WeatherModel) => {
         this.cityWeather.name = value.name;
+        this.cityWeather.country = value.country;
         this.cityWeather.temperature = Math.floor(value.temperature);
         this.cityWeather.description = value.description;
         this.cityWeather.humidity = value.humidity;
@@ -54,6 +56,7 @@ export class WeatherComponent implements OnInit {
     if (data) {
       console.log(data);
       this.cityWeather.name = data.name;
+      this.cityWeather.country = data.sys.country;
       this.cityWeather.temperature = Math.floor(data.main.temp);
       this.cityWeather.description = data.weather[0].description;
       this.cityWeather.humidity = data.main.humidity;

@@ -23,6 +23,7 @@ export class WeatherController {
 
       const newWeather = new Weather({
         name: weatherData.name,
+        country: weatherData.sys.country,
         temperature: weatherData.main.temp,
         description: weatherData.weather[0].description,
         humidity: weatherData.main.humidity,

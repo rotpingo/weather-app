@@ -3,6 +3,7 @@ import mongoose, { Document } from "mongoose";
 //Defining Interface for Weather Data
 export interface IWeather extends Document {
   name: string,
+  country: string,
   temperature: number,
   description: string;
   humidity: number;
@@ -13,6 +14,7 @@ export interface IWeather extends Document {
 // Schema
 const WeatherSchema = new mongoose.Schema({
   name: { type: String, required: true },
+  country: { type: String, required: true },
   temperature: { type: Number, required: true },
   description: { type: String, required: true },
   humidity: { type: Number, required: true },
