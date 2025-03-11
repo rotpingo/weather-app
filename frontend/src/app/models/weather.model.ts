@@ -5,5 +5,6 @@ export interface WeatherModel {
   description: string,
   humidity: number,
   wind: number,
-  cloudiness: number
+  cloudiness: number,
+  weatherCode: number
 }

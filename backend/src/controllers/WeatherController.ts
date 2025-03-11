@@ -28,7 +28,8 @@ export class WeatherController {
         description: weatherData.weather[0].description,
         humidity: weatherData.main.humidity,
         wind: weatherData.wind.speed,
-        cloudiness: weatherData.clouds.all
+        cloudiness: weatherData.clouds.all,
+        weatherCode: weatherData.weather[0].id
       })
 
       await newWeather.save();

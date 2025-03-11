@@ -1,24 +1,26 @@
-<div class="top-status-bar">
-  <div class="weekday">
-    Saturday
+<div class="weather-component">
+  <div class="top-status-bar">
+    <div class="weekday">
+      Saturday
+    </div>
+    <div class="opt-bar">
+      <span>
+        {{cityWeather.wind}}m/s <img class="icon-img" src="icons/air-black.svg" alt="air">
+      </span>
+      <span>
+        {{cityWeather.humidity}}% <img class="icon-img" src="icons/humidity-black.svg" alt="humidity">
+      </span>
+      <span>
+        {{cityWeather.cloudiness}}% <img class="icon-img" src="icons/clouds-black.svg" alt="cloudiness">
+      </span>
+    </div>
   </div>
-  <div class="opt-bar">
-    <span>
-      {{cityWeather.wind}}m/s <img class="icon-img" src="icons/air-black.svg" alt="air">
-    </span>
-    <span>
-      {{cityWeather.humidity}}% <img class="icon-img" src="icons/humidity-black.svg" alt="humidity">
-    </span>
-    <span>
-      {{cityWeather.cloudiness}}% <img class="icon-img" src="icons/clouds-black.svg" alt="cloudiness">
-    </span>
+  <div class="main-weather">
+    <div class="status-img-container">
+      <img class="status-img" src={{imgUrl}}>
+    </div>
+    <div class="temperature">{{cityWeather.temperature}}</div>
+    <div class="city">{{cityWeather.name}}, {{cityWeather.country}}</div>
+    <div class="description">{{cityWeather.description}}</div>
   </div>
-</div>
-<div class="main-weather">
-  <div class="status-img-container">
-    <img class="status-img" src="weather-status-img/clouds.png">
-  </div>
-  <div class="temperature">{{cityWeather.temperature}}</div>
-  <div class="city">{{cityWeather.name}}, {{cityWeather.country}}</div>
-  <div class="description">{{cityWeather.description}}</div>
 </div>

@@ -9,6 +9,7 @@ export interface IWeather extends Document {
   humidity: number;
   wind: number;
   cloudiness: number;
+  weatherCode: number;
 }
 
 // Schema
@@ -19,7 +20,8 @@ const WeatherSchema = new mongoose.Schema({
   description: { type: String, required: true },
   humidity: { type: Number, required: true },
   wind: { type: Number, required: true },
-  cloudiness: { type: Number, required: true }
+  cloudiness: { type: Number, required: true },
+  weatherCode: { type: Number, required: true }
 });
 
 //Exporting Mongoose Model
