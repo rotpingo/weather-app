@@ -10,7 +10,7 @@
 }
 
 .cover {
-    display: flex;
+    display: none;
     position: fixed;
     top:0;
     left:0;
@@ -21,8 +21,12 @@
 }
 
 .modal {
-    display: flex;
+    display: none;
     flex-direction: column-reverse;
+    text-align: center;
+    justify-content: center;
+    padding: 2rem;
+    gap: 4rem;
     position: fixed;
     height: 100vh;
     width: 40vw;
@@ -31,6 +35,12 @@
     background-color: rgba(20,20,20, 1);
     z-index: 100;
     color: white;
+}
+
+.modal-item {
+    border: 1px solid wheat;
+    padding: 1rem;
+    border-radius: 10px;
 }
 
 .footbar div {

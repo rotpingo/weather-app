@@ -1,6 +1,11 @@
-<div class="cover"></div>
-<div class="modal">ghuhghslhgiro</div>
+<div class="cover" #cover (click)="closeModal()"></div>
+<div class="modal" #modal>
+    <div class="modal-item">logout</div>
+    <div class="modal-item">settings</div>
+    <div class="modal-item">saved</div>
+    <div class="modal-item">search</div>
+</div>
 
 <div class="footbar">
-    <button><img src="icons/menu-white.svg"></button>
+    <button (click)="openModal()"><img src="icons/menu-white.svg"></button>
 </div>
