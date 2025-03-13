@@ -10,6 +10,7 @@ export class FootbarComponent {
 
   @ViewChild('modal', {static:true}) modal!: ElementRef;
   @ViewChild('cover', {static:true}) cover!: ElementRef;
+  @ViewChild('search', {static:true}) search!: ElementRef;
 
   isModalOpen: boolean = false;
 
@@ -18,6 +19,8 @@ export class FootbarComponent {
     coverElement.style.display = "none";
     const modalElement = this.modal.nativeElement;
     modalElement.style.display = "none";
+    const searchElement = this.search.nativeElement;
+    searchElement.style.display = "none";
   }
 
   openModal(){
@@ -25,6 +28,13 @@ export class FootbarComponent {
     coverElement.style.display = "flex";
     const modalElement = this.modal.nativeElement;
     modalElement.style.display = "flex";
+  }
+
+  openSearch(){
+    const searchElement = this.search.nativeElement;
+    searchElement.style.display = "flex";
+    const modalElement = this.modal.nativeElement;
+    modalElement.style.display = "none";
   }
 
 }

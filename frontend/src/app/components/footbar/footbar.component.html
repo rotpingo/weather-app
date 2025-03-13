@@ -3,8 +3,14 @@
     <div class="modal-item">logout</div>
     <div class="modal-item">settings</div>
     <div class="modal-item">saved</div>
-    <div class="modal-item">search</div>
+    <div class="modal-item" (click)="openSearch()">search</div>
 </div>
+
+<form class="search-form" #search>
+    <span>For a more precise search, please enter the country code, example: Rome, It</span>
+    <input class="search-input" type="text">
+    <button class="search-btn" type="submit">search</button>
+</form>
 
 <div class="footbar">
     <button (click)="openModal()"><img src="icons/menu-white.svg"></button>
