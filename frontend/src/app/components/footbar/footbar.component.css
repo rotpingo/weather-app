@@ -1,0 +1,51 @@
+.footbar {
+    display: flex;
+    flex-direction: row-reverse;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    height: 3rem;
+    background-color: rgb(32, 32, 32);
+}
+
+.cover {
+    display: flex;
+    position: fixed;
+    top:0;
+    left:0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 50;
+}
+
+.modal {
+    display: flex;
+    flex-direction: column-reverse;
+    position: fixed;
+    height: 100vh;
+    width: 40vw;
+    top: 0;
+    right: 0;
+    background-color: rgba(20,20,20, 1);
+    z-index: 100;
+    color: white;
+}
+
+.footbar div {
+    border: 1px solid white;
+    width: 3.5rem;
+
+}
+
+.footbar button {
+    width: 3rem;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.footbar button img {
+    width: inherit;
+}
