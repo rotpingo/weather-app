@@ -1,6 +1,8 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { WeatherService } from '../../services/weather.service';
+import { HttpErrorResponse } from '@angular/common/http';
+import { WeatherModel } from '../../models/weather.model';
 
 @Component({
   selector: 'app-footbar',
@@ -43,13 +45,13 @@ export class FootbarComponent {
 
   onSearchCity() {
     if (this.city.valid && this.city.value != '') {
-      this.service.getWeather(this.city.value!).subscribe({
-   
-      })
-      console.log("value: ", this.city.value);
-    } else {
-      console.log('Invalid input');
+      this.service.getWeatherApi(this.city.value!).subscribe({
+        next: (value: WeatherModel) => this.service.updateWeatherData(value),
+        error: (error: HttpErrorResponse) => alert(error.message),
+      });
     }
+
+    this.closeModal();
 
   }
 

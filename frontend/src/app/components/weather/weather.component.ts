@@ -28,54 +28,33 @@ export class WeatherComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.onGetWeather("Berlin");
+    this.loadData();
+    //this.onGetWeather("Berlin");
     //this.getDirectWeather("Lisabon");
+
   }
 
-  onGetWeather(city: String) {
-    this.weatherService.getWeather(city).subscribe({
+  loadData() {
+    this.weatherService.getWeatherData().subscribe({
       next: (value: WeatherModel) => {
-        this.cityWeather.name = value.name;
-        this.cityWeather.country = value.country;
-        this.cityWeather.temperature = Math.floor(value.temperature);
+        this.cityWeather.name = value.name,
+          this.cityWeather.country = value.country,
+          this.cityWeather.temperature = Math.floor(value.temperature);
         this.cityWeather.description = value.description;
         this.cityWeather.humidity = value.humidity;
-        this.cityWeather.wind = Math.floor(value.wind);
+        this.cityWeather.wind = value.wind;
         this.cityWeather.cloudiness = value.cloudiness;
         this.cityWeather.weatherCode = value.weatherCode;
 
         this.getImg(this.cityWeather.weatherCode);
-
-        console.log(value);
       },
       error: (error: HttpErrorResponse) => alert(error.message),
     });
   }
 
-  async getDirectWeather(city: String) {
-    const ApiKey = "da7f408c3e49dd36e0aff646c9b441d6";
-    const ApiUrl = "https://api.openweathermap.org/data/2.5/weather?q=";
-    const response = await fetch(ApiUrl + city + "&appid=" + ApiKey + "&units=metric");
+  getImg(weatherCode: number) {
 
-    let data = await response.json();
-    if (data) {
-      console.log(data);
-      this.cityWeather.name = data.name;
-      this.cityWeather.country = data.sys.country;
-      this.cityWeather.temperature = Math.floor(data.main.temp);
-      this.cityWeather.description = data.weather[0].description;
-      this.cityWeather.humidity = data.main.humidity;
-      this.cityWeather.wind = Math.floor(data.wind.speed);
-      this.cityWeather.cloudiness = data.clouds.all;
-      this.cityWeather.weatherCode = data.weather[0].id;
-
-      this.getImg(this.cityWeather.weatherCode);
-    }
-  }
-
-  getImg(weatherCode: number){
-   
-    switch(true){
+    switch (true) {
       case weatherCode >= 200 && weatherCode <= 232:
         return this.imgUrl = "weather-status-img/cloud-thunder-rain.png";
       case weatherCode >= 300 && weatherCode <= 321:
@@ -99,8 +78,6 @@ export class WeatherComponent implements OnInit {
       default:
         return console.log("wrong weather status");
     }
-
   }
-
 
 }
