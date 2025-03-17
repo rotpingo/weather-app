@@ -7,5 +7,6 @@ const weatherService = new WeatherService();
 const weatherController = new WeatherController(weatherService);
 
 router.get("/weather", weatherController.getWeather);
+router.post("/weather/saved", weatherController.saveCity);
 
 export default router;

@@ -15,8 +15,11 @@ export class FootbarComponent {
   @ViewChild('modal', { static: true }) modal!: ElementRef;
   @ViewChild('cover', { static: true }) cover!: ElementRef;
   @ViewChild('search', { static: true }) search!: ElementRef;
+  @ViewChild('saved', { static: true }) saved!: ElementRef;
 
   city = new FormControl('', [Validators.required, Validators.minLength(1)]);
+
+  cities: string[] = [];
 
   constructor(private service: WeatherService){}
 
