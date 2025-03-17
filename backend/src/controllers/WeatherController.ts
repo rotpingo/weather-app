@@ -34,8 +34,6 @@ export class WeatherController {
       })
 
       // await newWeather.save();
-
-
       response.json(newWeather);
     } catch (error) {
       console.error('Error fetching weather data', error);
@@ -65,7 +63,16 @@ export class WeatherController {
     }
   }
 
+  async getSavedCities(request: Request, response: Response): Promise<void> {
 
+    try {
+      const cities = await FavCity.find();
+      response.json(cities);
+    } catch (error) {
+      console.error("Error fetching cities:", error);
+      response.status(500).json({ error: "Failed to get cities" });
+    }
+  }
 
 
 }
