@@ -12,8 +12,8 @@
 .cover {
     display: none;
     position: fixed;
-    top:0;
-    left:0;
+    top: 0;
+    left: 0;
     width: 100vw;
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.6);
@@ -32,7 +32,7 @@
     width: 40vw;
     top: 0;
     right: 0;
-    background-color: rgba(20,20,20, 1);
+    background-color: rgba(20, 20, 20, 1);
     z-index: 100;
     color: white;
 }
@@ -75,6 +75,66 @@
     height: 2rem;
     width: 40%;
     border-radius: 6px;
+}
+
+.saved {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(32, 32, 32, 1);
+    color: wheat;
+    height: 20rem;
+    width: 80%;
+    border-radius: 10px;
+
+    z-index: 150;
+}
+
+.saved-list {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.saved-item {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    align-self: center;
+    margin: 0.3rem;
+    padding: 0.5rem;
+    cursor: pointer;
+    align-items: center;
+    border: 1px solid wheat;
+    border-radius: 10px;
+}
+
+.saved-item span {
+    flex-grow: 1;
+    text-align: center;
+}
+
+.saved-item button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.saved-item button img {
+    vertical-align: middle;
+}
+
+.saved-btn {
+    align-self: center;
+    margin-top: 1rem;
+    height: 2rem;
+    width: 80%;
+    border-radius: 10px;
+    cursor: pointer;
 }
 
 .footbar div {

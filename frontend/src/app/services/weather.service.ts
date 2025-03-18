@@ -2,6 +2,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { WeatherModel } from '../models/weather.model';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { SavedCitiesModel } from '../models/saved.model';
 
 @Injectable({
   providedIn: 'root'
@@ -43,5 +44,10 @@ export class WeatherService {
       next: (value: WeatherModel) => this.cityData.next(value),
       error: (error: HttpErrorResponse) => alert(error.message),
     });
+  }
+
+  getSavedCities(): Observable<SavedCitiesModel[]>{
+    const url = `${this.apiServerUrl}/weather/saved`;
+    return this.http.get<SavedCitiesModel[]>(url);
   }
 }

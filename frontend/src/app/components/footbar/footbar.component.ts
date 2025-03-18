@@ -3,6 +3,7 @@ import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { WeatherService } from '../../services/weather.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { WeatherModel } from '../../models/weather.model';
+import { SavedCitiesModel } from '../../models/saved.model';
 
 @Component({
   selector: 'app-footbar',
@@ -19,7 +20,7 @@ export class FootbarComponent {
 
   city = new FormControl('', [Validators.required, Validators.minLength(1)]);
 
-  cities: string[] = [];
+  cities: SavedCitiesModel[] = [];
 
   constructor(private service: WeatherService){}
 
@@ -30,6 +31,8 @@ export class FootbarComponent {
     modalElement.style.display = "none";
     const searchElement = this.search.nativeElement;
     searchElement.style.display = "none";
+    const savedElement = this.saved.nativeElement;
+    savedElement.style.display = "none";
   }
 
   openModal() {
@@ -55,7 +58,22 @@ export class FootbarComponent {
     }
 
     this.closeModal();
+  }
 
+  onGetSavedCities(){
+
+    const savedElement = this.saved.nativeElement;
+    const coverElement = this.cover.nativeElement;
+    const modalElement = this.modal.nativeElement;
+    modalElement.style.display = "none";
+
+    this.service.getSavedCities().subscribe({
+      next: (value: SavedCitiesModel[]) => this.cities = value,
+      error: (error: HttpErrorResponse) => alert(error.message)
+    });
+
+    savedElement.style.display = "flex";
+    coverElement.style.display = "flex";
   }
 
 }

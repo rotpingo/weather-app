@@ -2,7 +2,7 @@
 <div class="modal" #modal>
     <div class="modal-item">logout</div>
     <div class="modal-item">settings</div>
-    <div class="modal-item">saved</div>
+    <div class="modal-item" (click)="onGetSavedCities()">saved</div>
     <div class="modal-item" (click)="openSearch()">search</div>
 </div>
 
@@ -13,7 +13,17 @@
 </form>
 
 <div class="saved" #saved>
-    
+    <div class="saved-list">
+        @for (city of cities; track city.name){
+        <div class="saved-item">
+            <span>{{city.name}}</span>
+            <button>
+                <img src="icons/delete-white.svg">
+            </button>
+        </div>
+        }
+    </div>
+    <button class="saved-btn">save current city</button>
 </div>
 
 <div class="footbar">
