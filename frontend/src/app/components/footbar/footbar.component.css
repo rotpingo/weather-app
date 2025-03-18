@@ -41,6 +41,7 @@
     border: 1px solid wheat;
     padding: 1rem;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 .search-form {
@@ -78,7 +79,7 @@
 }
 
 .saved {
-    display: flex;
+    display: none;
     flex-direction: column;
     position: fixed;
     left: 50%;

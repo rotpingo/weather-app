@@ -55,7 +55,7 @@ export class FootbarComponent {
         next: 
           (value: WeatherModel) => { 
             this.service.updateWeatherData(value),
-            console.log(this.service.cityData.value)
+            this.city.reset()
         },
           
         error: (error: HttpErrorResponse) => alert(error.message),
