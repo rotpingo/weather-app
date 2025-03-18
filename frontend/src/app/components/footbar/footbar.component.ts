@@ -52,7 +52,12 @@ export class FootbarComponent {
   onSearchCity() {
     if (this.city.valid && this.city.value != '') {
       this.service.getWeatherApi(this.city.value!).subscribe({
-        next: (value: WeatherModel) => this.service.updateWeatherData(value),
+        next: 
+          (value: WeatherModel) => { 
+            this.service.updateWeatherData(value),
+            console.log(this.service.cityData.value)
+        },
+          
         error: (error: HttpErrorResponse) => alert(error.message),
       });
     }
@@ -72,8 +77,15 @@ export class FootbarComponent {
       error: (error: HttpErrorResponse) => alert(error.message)
     });
 
+    console.log(this.cities);
+
     savedElement.style.display = "flex";
     coverElement.style.display = "flex";
+  }
+
+  onSaveCity(){
+    const currentCity = this.service.cityData.value;
+    
   }
 
 }

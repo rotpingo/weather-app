@@ -1,3 +1,4 @@
 export interface SavedCitiesModel {
-    name: string
+    name: string,
+    country: string
 }

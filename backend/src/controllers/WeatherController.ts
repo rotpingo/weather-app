@@ -43,15 +43,21 @@ export class WeatherController {
 
   async saveCity(request: Request, response: Response): Promise<void> {
     try {
-      const city = request.query.city as string;
+      
+      const cityName = request.body.name as string;
+      const cityCountry = request.body.country as string;
 
-      if (!city) {
+      console.log(cityName);
+      console.log(cityCountry);
+
+      if (!cityName) {
         response.status(400).json({ error: "City parameter is required" });
         return
       }
 
       const newCity = new FavCity({
-        name: city
+        name: cityName,
+        country: cityCountry.toUpperCase()
       });
 
       await newCity.save();

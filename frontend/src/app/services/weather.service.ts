@@ -9,7 +9,7 @@ import { SavedCitiesModel } from '../models/saved.model';
 })
 export class WeatherService {
 
-  private cityData = new BehaviorSubject<WeatherModel>({
+  cityData = new BehaviorSubject<WeatherModel>({
     name: "",
     country: "",
     temperature: 0,
@@ -49,5 +49,10 @@ export class WeatherService {
   getSavedCities(): Observable<SavedCitiesModel[]>{
     const url = `${this.apiServerUrl}/weather/saved`;
     return this.http.get<SavedCitiesModel[]>(url);
+  }
+
+  saveCity(request: string): Observable<void>{
+    const url = `${this.apiServerUrl}/weather/saved`;
+    return this.http.post<void>(request, url);
   }
 }
