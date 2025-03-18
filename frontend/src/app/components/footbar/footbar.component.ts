@@ -85,6 +85,18 @@ export class FootbarComponent {
 
   onSaveCity(){
     const currentCity = this.service.cityData.value;
+
+    const newCity: SavedCitiesModel = {
+      name: currentCity.name,
+      country: currentCity.country
+    };
+
+    this.service.saveCity(newCity).subscribe({
+      next: () => {
+        this.closeModal();
+      },
+      error: (error: HttpErrorResponse) => alert(error.message)
+    })
     
   }
 

@@ -51,8 +51,8 @@ export class WeatherService {
     return this.http.get<SavedCitiesModel[]>(url);
   }
 
-  saveCity(request: string): Observable<void>{
+  saveCity(saved: SavedCitiesModel): Observable<void>{
     const url = `${this.apiServerUrl}/weather/saved`;
-    return this.http.post<void>(request, url);
+    return this.http.post<void>(url, saved);
   }
 }
