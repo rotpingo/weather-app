@@ -38,8 +38,8 @@ export class WeatherComponent implements OnInit {
     this.weatherService.getWeatherData().subscribe({
       next: (value: WeatherModel) => {
         this.cityWeather.name = value.name,
-          this.cityWeather.country = value.country,
-          this.cityWeather.temperature = Math.floor(value.temperature);
+        this.cityWeather.country = value.country,
+        this.cityWeather.temperature = Math.floor(value.temperature);
         this.cityWeather.description = value.description;
         this.cityWeather.humidity = value.humidity;
         this.cityWeather.wind = value.wind;

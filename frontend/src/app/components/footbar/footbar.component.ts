@@ -1,5 +1,5 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
-import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormControl, FormGroup, MinLengthValidator, MinValidator, ReactiveFormsModule, Validators } from '@angular/forms';
 import { WeatherService } from '../../services/weather.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { WeatherModel } from '../../models/weather.model';
@@ -18,11 +18,15 @@ export class FootbarComponent {
   @ViewChild('search', { static: true }) search!: ElementRef;
   @ViewChild('saved', { static: true }) saved!: ElementRef;
 
-  city = new FormControl('', [Validators.required, Validators.minLength(1)]);
+  searchForm!: FormGroup;
 
   cities: SavedCitiesModel[] = [];
 
-  constructor(private service: WeatherService){}
+  constructor(private service: WeatherService){
+    this.searchForm = new FormGroup({
+      name: new FormControl('', [Validators.required, Validators.minLength(1)])
+    });
+  }
 
   closeModal() {
     const coverElement = this.cover.nativeElement;
@@ -50,12 +54,13 @@ export class FootbarComponent {
   }
 
   onSearchCity() {
-    if (this.city.valid && this.city.value != '') {
-      this.service.getWeatherApi(this.city.value!).subscribe({
+
+    if (this.searchForm.valid && this.searchForm.value.name != '') {
+      this.service.getWeatherApi(this.searchForm.value.name).subscribe({
         next: 
           (value: WeatherModel) => { 
             this.service.updateWeatherData(value),
-            this.city.reset()
+            this.searchForm.reset()
         },
           
         error: (error: HttpErrorResponse) => alert(error.message),

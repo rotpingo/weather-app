@@ -6,10 +6,10 @@
     <div class="modal-item" (click)="openSearch()">search</div>
 </div>
 
-<form class="search-form" #search>
+<form [formGroup]="searchForm" (ngSubmit)="onSearchCity()" class="search-form" #search>
     <span>For a more precise search, please enter the country code, example: Rome, It</span>
-    <input class="search-input" type="text" [formControl]="city">
-    <button class="search-btn" type="button" (click)="onSearchCity()">search</button>
+    <input class="search-input" type="text" formControlName="name">
+    <button class="search-btn" type="submit">search</button>
 </form>
 
 <div class="saved" #saved>
